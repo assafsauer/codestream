@@ -30,4 +30,4 @@ ADD Dockerfile        /Dockerfile
 #ADD Dockerrun.sh     /run.sh
 #RUN chmod +x /run.sh
 
-CMD ["/run.sh"]
+# CMD ["/run.sh"]
