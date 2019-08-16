@@ -1,6 +1,8 @@
 FROM php:7.2-apache
 MAINTAINER  A.Sauer
 
+EXPOSE 80 443 	
+
 # insall global requirements
 RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev zip unzip && rm -rf /var/lib/apt/lists/* 
 
