@@ -1,8 +1,6 @@
 FROM php:7.2-apache
 MAINTAINER  A.Sauer
 
-WORKDIR /go/src/github.com/assafsauer/sauer/
-
 # insall global requirements
 RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev zip unzip && rm -rf /var/lib/apt/lists/* 
 
@@ -18,7 +16,7 @@ RUN docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
 #ADD index.php /var/www/html/index.php
 #ADD info.php  /var/www/html/info.php
 
-COPY --from=0 /go/src/github.com/assafsauer/sauer/index.php
+COPY index.php /var/www/html/
 
 # process code
 RUN chmod 755 /var/www/html/index.php
@@ -30,4 +28,4 @@ ADD Dockerfile        /Dockerfile
 #ADD Dockerrun.sh     /run.sh
 #RUN chmod +x /run.sh
 
-# CMD ["/run.sh"]
+CMD ["/run.sh"]
