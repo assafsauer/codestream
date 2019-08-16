@@ -18,7 +18,7 @@ RUN docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
 #ADD index.php /var/www/html/index.php
 #ADD info.php  /var/www/html/info.php
 
-COPY index.php /var/www/html/
+ADD index.php /var/www/html/
 
 # process code
 RUN chmod 755 /var/www/html/index.php
@@ -27,7 +27,7 @@ RUN chmod 755 /var/www/html/index.php
 ADD Dockerfile        /Dockerfile
 
 # application entrypoint
-COPY Dockerrun.sh     /run.sh
+ADD Dockerrun.sh     /run.sh
 RUN chmod +x /run.sh
 
 CMD ["/run.sh"]
