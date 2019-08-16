@@ -27,7 +27,7 @@ RUN chmod 755 /var/www/html/index.php
 ADD Dockerfile        /Dockerfile
 
 # application entrypoint
-#ADD Dockerrun.sh     /run.sh
-#RUN chmod +x /run.sh
+ADD Dockerrun.sh     /run.sh
+RUN chmod +x /run.sh
 
-#CMD ["/run.sh"]
+CMD ["/run.sh"]
