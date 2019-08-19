@@ -15,7 +15,7 @@ RUN docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
 # add code
 ADD index.php /var/www/html/index.php
 #ADD info.php  /var/www/html/info.php
-
+COPY index.php /var/www/html/index.php
 # process code
 RUN chmod 755 /var/www/html/index.php
 
