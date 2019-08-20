@@ -13,9 +13,9 @@ RUN docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
     && docker-php-ext-install mysqli
 
 # add code
-ADD index.php /var/www/html/index.php
+ADD index.html /var/www/html/index.php
 #ADD info.php  /var/www/html/info.php
-COPY index.php /var/www/html/index.html
+COPY index.html /var/www/html/index.html
 # process code
 RUN chmod 755 /var/www/html/index.html
 
