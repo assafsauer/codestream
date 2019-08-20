@@ -1,5 +1,5 @@
 FROM php:7.2-apache
-MAINTAINER  J the G
+MAINTAINER  A.Sauer
 
 # insall global requirements
 RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev zip unzip && rm -rf /var/lib/apt/lists/* 
@@ -11,6 +11,8 @@ RUN a2enmod rewrite
 RUN docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
     && docker-php-ext-install gd \
     && docker-php-ext-install mysqli
+
+VOLUME /var/www/html
 
 # add code
 ADD index.html /var/www/html/index.php
