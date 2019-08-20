@@ -15,7 +15,7 @@ RUN docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
 VOLUME /var/www/html
 
 # add code
-ADD index.html /var/www/html/index.php
+#ADD index.html /var/www/html/index.php
 #ADD info.php  /var/www/html/info.php
 COPY index.html /var/www/html/index.html
 # process code
