@@ -26,4 +26,5 @@ ADD Dockerfile        /Dockerfile
 # ADD Dockerrun.sh     /run.sh
 # RUN chmod +x /run.sh
 
-CMD ["/usr/local/bin/apache2-foreground"]
+# CMD ["/usr/local/bin/apache2-foreground"]
+CMD ["apache2-foreground"]
