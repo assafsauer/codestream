@@ -19,7 +19,7 @@ EXPOSE 80
 # add code
 #ADD index.html /var/www/html/index.php
 #ADD info.php  /var/www/html/info.php
-COPY index.php /var/www/html/index.php
+COPY index.html /var/www/html/index.html
 # process code
 RUN chmod 755 /var/www/html/index.html
 
