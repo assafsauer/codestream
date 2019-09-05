@@ -3,7 +3,7 @@
 <title>our 2twa frontend</title>
 <body>
 
-<a href="info.php">info.php</a>
+<a href="index.php">index.php</a>
 
 <?php
 
