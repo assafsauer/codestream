@@ -7,7 +7,7 @@
 
 <?php
 
-	$hostname = $_ENV["MY_DB_HOST"];
+	$hostname = $_ENV["sql.osauer.local"];
 	$username = "root";
 	$password = $_ENV["MY_DB_PASSWORD"];
 	$db = "mydb1";
