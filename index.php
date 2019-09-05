@@ -1,60 +1,45 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<title>our 2twa frontend</title>
-<body>
+	<body>
+		<?php
 
-<a href="index.php">index.php</a>
+		$hostname = "sql.osauer.local";
+		$username = "root";
+		$password = "password";
+		$db = "mydb1";
 
-<?php
+		$dbconnect=mysqli_connect($hostname,$username,$password,$db);
 
-	$hostname = $_ENV["sql.osauer.local"];
-	$username = "root";
-	$password = $_ENV["MY_DB_PASSWORD"];
-	$db = "mydb1";
-		
-	$dbconnect=mysqli_connect($hostname,$username,$password,$db);
+		if ($dbconnect->connect_error) {
+		  die("Database connection failed: " . $dbconnect->connect_error);
+		  }
 
-	if ($dbconnect->connect_error) {
-	  die("Database connection failed: " . $dbconnect->connect_error);
-	  }
+		  ?>
 
-	  ?>
+		  <table border="1" align="center">
+			  <tr>
+				    <td>first_name</td>
+				      <td>last_name</td>
+				        <td>city</td>
+			  </tr>
 
-<h3> some data from the table_name table</h3>
-	  <table border="1" align="left">
-		  <tr>
-				<td>First</td>
-				  <td>Last</td>
-					<td>City</td>
-		  </tr>
+			  <?php
 
-		  <?php
+		      $query = mysqli_query($dbconnect, "SELECT * FROM table_name")
+		         or die (mysqli_error($dbconnect));
 
-		  $query = mysqli_query($dbconnect, "SELECT * FROM table_name")
-			 or die (mysqli_error($dbconnect));
+		      while ($row = mysqli_fetch_array($query)) {
+		        echo
+		         "<tr>
+			     <td>{$row['first_name']}</td>
+			         <td>{$row['last_name']}</td>
+				     <td>{$row['city']}</td>
+				        </tr>\n";
 
-		  while ($row = mysqli_fetch_array($query)) {
-			echo
-			 "<tr>
-			 <td>{$row['first_name']}</td>
-				 <td>{$row['last_name']}</td>
-				 <td>{$row['city']}</td>
-					</tr>\n";    		  }
-		?>
-	  </table>		  
-		 
-</br>
-<br>
+		      }
 
-
-<h3> meta info </h3>
-<?php 
-echo date('d.m.Y h:i:s a', time());
-echo "</br>";
-echo "connected to myslq://root:$password@$hostname/$db";
-?>
-
-
+		      ?>
+		  </table>
 	</body>
-<meta http-equiv="refresh" content="3; URL=/">
 </html>
+EOL
