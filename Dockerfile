@@ -15,6 +15,7 @@ RUN docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
 VOLUME /var/www/html
 
 EXPOSE 80
+EXPOSE 443
 
 # add code
 #ADD index.html /var/www/html/index.php
